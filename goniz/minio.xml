@@ -36,7 +36,7 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Config Name="Host Port 1" Target="9000" Default="9000" Mode="tcp" Description="Container Port: 9091" Type="Port" Display="always" Required="true" Mask="false">9000</Config>
+  <Config Name="Host Port 1" Target="9000" Default="9000" Mode="tcp" Description="Container Port: 9000" Type="Port" Display="always" Required="true" Mask="false">9000</Config>
   <Config Name="Host Path 2" Target="/export" Default="/mnt/user/s3" Mode="rw" Description="Container Path: /export" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/s3</Config>
   <Config Name="AppData Config Path" Target="/root/.minio" Default="/mnt/user/appdata/minio" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/minio</Config>
 </Container>
