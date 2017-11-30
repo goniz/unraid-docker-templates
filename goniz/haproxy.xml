@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+<Beta>False</Beta>
+<Category>Productivity: Tools:</Category>
+  <Name>HAProxy</Name>
+  <Description>
+	HAProxy
+  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+  [b]/config[/b] This is where the HAProxy will store its configuration files and logs.
+  </Description>
+  <Overview>
+	HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.
+  </Overview>
+  <Support></Support>
+  <Registry>https://registry.hub.docker.com/u/library/haproxy/</Registry>
+  <Repository>goniz/unraid-docker-haproxy</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name></Name>
+      <Value></Value>
+    </Variable>
+  </Environment>    
+  <Data>
+    <Volume>
+      <HostDir>path to config</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>  
+  <Icon>https://raw.githubusercontent.com/goniz/unraid-docker-templates/master/goniz/images/haproxy-icon.png</Icon>
+</Containers>
