@@ -1,21 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
-<Beta>False</Beta>
-<Category>Productivity: Tools:</Category>
+<?xml version="1.0"?>
+<Container version="2">
   <Name>HAProxy</Name>
-  <Description>
-	HAProxy
+  <Repository>library/haproxy</Repository>
+  <Registry>https://registry.hub.docker.com/u/library/haproxy/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Overview>HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.</Overview>
+  <Category>Networking:</Category>
+  <Icon>https://raw.githubusercontent.com/goniz/unraid-docker-templates/master/goniz/images/haproxy-icon.png</Icon>
+  <ExtraParams/>
+  <Description>HAProxy
   [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
   [b]/usr/local/etc/haproxy[/b] This is where the HAProxy will store its configuration files and logs.
   </Description>
-  <Overview>
-	HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.
-  </Overview>
-  <Support></Support>
-  <Registry>https://registry.hub.docker.com/u/library/haproxy/</Registry>
-  <Repository>library/haproxy</Repository>
-  <BindTime>true</BindTime>
-  <Privileged>false</Privileged>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -24,20 +21,21 @@
         <ContainerPort>8080</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
     </Publish>
   </Networking>
-  <Environment>
-    <Variable>
-      <Name></Name>
-      <Value></Value>
-    </Variable>
-  </Environment>    
   <Data>
     <Volume>
-      <HostDir>path to config</HostDir>
+      <HostDir>/mnt/user/appdata/haproxy</HostDir>
       <ContainerDir>/usr/local/etc/haproxy/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
-  </Data>  
-  <Icon>https://raw.githubusercontent.com/goniz/unraid-docker-templates/master/goniz/images/haproxy-icon.png</Icon>
-</Containers>
+  </Data>
+  <Config Name="Host Port 1" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Host Port 2" Target="443" Default="443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">443</Config>
+  <Config Name="AppData Config Path" Target="/usr/local/etc/haproxy/" Default="/mnt/user/appdata/haproxy" Mode="rw" Description="Container Path: /usr/local/etc/haproxy/" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/haproxy</Config>
+</Container>
