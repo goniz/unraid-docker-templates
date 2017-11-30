@@ -28,21 +28,33 @@
   </Networking>
   <Environment>
     <Variable>
-      <Name></Name>
-      <Value></Value>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
     </Variable>
   </Environment>    
   <Data>
     <Volume>
-      <HostDir>path to config</HostDir>
+      <HostDir>/mnt/user/appdata/minio</HostDir>
       <ContainerDir>/root/.minio</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir>path to data</HostDir>
+      <HostDir>/mnt/user</HostDir>
       <ContainerDir>/export</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>  
   <Icon>https://raw.githubusercontent.com/goniz/unraid-docker-templates/master/goniz/images/minio-icon.png</Icon>
+  <Config Name="Host Port" Target="9000" Default="9000" Mode="tcp" Description="Container Port: 9000" Type="Port" Display="always" Required="true" Mask="false">9000</Config>
+  <Config Name="Host Export Path" Target="/export" Default="/mnt/user" Mode="rw" Description="Container Path: /export" Type="Path" Display="always" Required="true" Mask="false">/mnt/user</Config>
+  <Config Name="Key 1" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="Key 2" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="AppData Config Path" Target="/root/.minio" Default="/mnt/user/appdata/minio" Mode="rw" Description="Container Path: /root/.minio" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/minio</Config>
+
 </Containers>
