@@ -6,7 +6,7 @@
   <Description>
 	HAProxy
   [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-  [b]/config[/b] This is where the HAProxy will store its configuration files and logs.
+  [b]/usr/local/etc/haproxy[/b] This is where the HAProxy will store its configuration files and logs.
   </Description>
   <Overview>
 	HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.
@@ -35,7 +35,7 @@
   <Data>
     <Volume>
       <HostDir>path to config</HostDir>
-      <ContainerDir>/config</ContainerDir>
+      <ContainerDir>/usr/local/etc/haproxy/</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>  
